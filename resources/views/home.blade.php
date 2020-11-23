@@ -16,6 +16,7 @@
 
                     You are logged with Mobile No. {{ Auth::user()->mobile }}
                 </div>
+                
             </div>
         </div>
     </div>

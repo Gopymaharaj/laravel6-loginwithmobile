@@ -14,6 +14,7 @@
                 <th>Gender</th>
                 <th>Country</th>
                 <th>Address</th>
+                <th>Action</th>
 
             </tr>
             @foreach($data as $value)
@@ -27,6 +28,7 @@
                     <td>{{$value->gender}}</td>
                     <td>{{$value->country}}</td>
                     <td>{{$value->address}}</td>
+                    <td><a href="delete/{{$value->id}}">Delete</a></td>
                 </tr>
             @endforeach
         </table>

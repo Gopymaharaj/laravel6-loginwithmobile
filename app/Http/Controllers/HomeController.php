@@ -55,7 +55,7 @@ class HomeController extends Controller
         $data->country = $request->country;
         $data->address = $request->address;
         $data->save();
-        return redirect('home');
+        return redirect('/insert')->with('message','Success');
         }else{
             return 'not saved';
         }
@@ -63,5 +63,9 @@ class HomeController extends Controller
     public function GetStudentData(){
         $data = Student::all();
         return view('show',['data'=>$data]);
+    }
+    public function DeleteStudetnData(Request $request){
+        Student::where('id',$request->id)->delete();
+        return redirect('/show');
     }
 }

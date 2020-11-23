@@ -2,6 +2,14 @@
 
 @section('content')
     <div class="container">
+    @if(session('message'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{session('message')}}</strong> <br>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
     @if ($errors->any())
     <div class="alert alert-danger">
     
@@ -48,13 +56,13 @@
                     <div class="form-group">
                         {{Form::label('gender', 'Gender')}}
                         <br>
-                        {{Form::radio('gender','male')}}Male
-                        {{Form::radio('gender','feMale')}}FeMale
+                        {{Form::radio('gender','M')}}Male
+                        {{Form::radio('gender','F')}}FeMale
                     </div>
                     <div class="form-group">
                         {{Form::label('Country', 'Country')}}
                         <br>
-                        {{Form::select('country',[''=>'Select Country','india'=>'india','pakistan'=>'pakistan'],null,['class'=>'form-control'])}}
+                        {{Form::select('country',[''=>'Select Country','1'=>'india','2'=>'pakistan','3'=>'Russia'],null,['class'=>'form-control'])}}
                     </div>
                     
                     <div class="form-group">

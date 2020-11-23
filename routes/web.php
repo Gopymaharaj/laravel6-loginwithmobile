@@ -17,11 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::group(['middleware' => ['auth','password.confirm']], function () {
-    Route::view('insert','insert');
+    Route::view('/insert','insert');
     Route::get('/home', 'HomeController@index')->name('home');
     Route::post('/insert', 'HomeController@store')->name('store');
     Route::view('/show','show');
     Route::get('/show','HomeController@GetStudentData');
+    Route::get('delete/{id}','HomeController@DeleteStudetnData');
 });
 
 

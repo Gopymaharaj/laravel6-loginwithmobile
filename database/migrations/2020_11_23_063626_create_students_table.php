@@ -19,11 +19,15 @@ class CreateStudentsTable extends Migration
             $table->string('email');
             $table->string('mobile',11);
             $table->string('password');
-            $table->string('date');
-            $table->string('gender');
-            $table->string('country');
+            $table->string('photo');
+            $table->date('date');
+            $table->char('gender');
+            // $table->tinyInteger('gender'); we can use also 
+            $table->unsignedBigInteger('country');
+            $table->foreign('country')->references('id')->on('countrys');
             $table->string('address');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
